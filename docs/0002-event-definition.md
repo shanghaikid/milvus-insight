@@ -82,6 +82,7 @@ Informational events can be either notification type I (information) or notifica
 | :---------: | :-------: | :------: | :---------------- | :------------------------------- | :--------- |
 |     100     |    001    |  000001  | I                 | root coord is online             |            |
 |     100     |    001    |  000004  | I                 | root coord is offline            |            |
+|     100     |    001    |  000004  | I                 | TSC event                        |            |
 |     100     |    001    |  000004  | I                 | TSC error                        | 040000     |
 |     100     |    001    |  000004  | E                 | unable to connect to data broker | 040000     |
 |     100     |    001    |  000004  | E                 | unable to connect to query coord | 040000     |
@@ -91,7 +92,7 @@ Informational events can be either notification type I (information) or notifica
 ### proxy
 | Object code | Object ID | Event ID | Notification type | Description                      | Error Code |
 | :---------: | :-------: | :------: | :---------------- | :------------------------------- | :--------- |
-|     101     |    001    |  000002  | I                 | proxy is offline                 |            |
+|     101     |    001    |  000002  | I                 | proxy is online                  |            |
 |     101     |    001    |  000004  | I                 | proxy is offline                 |            |
 |     101     |    001    |  000004  | E                 | unable to connect to data broker | 040000     |
 |     101     |    001    |  000004  | E                 | unable to connect to query coord | 040000     |
@@ -110,7 +111,7 @@ Informational events can be either notification type I (information) or notifica
 |     103     |    001    |  000004  | I                 | query node is online     |            |
 |     103     |    001    |  000004  | E                 | query node is offline    | 000001     |
 |     103     |    001    |  000004  | W                 | cpu is too busy          | 000002     |
-|     103     |    001    |  000004  | W                 | memory usage is too high | 101010     |
+|     103     |    001    |  000004  | W                 | memory usage is too high | 000006     |
 
 ### index coord
 | Object code | Object ID | Event ID | Notification type | Description            | Error Code |
@@ -125,7 +126,7 @@ Informational events can be either notification type I (information) or notifica
 |     105     |    001    |  000004  | I                 | index node is online     |            |
 |     105     |    001    |  000004  | E                 | index node is offline    | 000001     |
 |     105     |    001    |  000004  | W                 | cpu is too busy          | 000002     |
-|     105     |    001    |  000004  | W                 | memory usage is too high | 000001     |
+|     105     |    001    |  000004  | W                 | memory usage is too high | 000006     |
 
 
 ### data coord
@@ -144,11 +145,12 @@ Informational events can be either notification type I (information) or notifica
 |     107     |    001    |  000004  | W                 | memory usage is too high | 000001     |
 
 ### meta storage
-| Object code | Object ID | Event ID | Notification type | Description             | Error Code |
-| :---------: | :-------: | :------: | :---------------- | :---------------------- | :--------- |
-|     108     |    001    |  000004  | I                 | meta storage is online  |            |
-|     108     |    001    |  000004  | I                 | meta storage is offline |            |
-|     108     |    001    |  000004  | E                 | meta storage is full    | 000003     |
+| Object code | Object ID | Event ID | Notification type | Description                | Error Code |
+| :---------: | :-------: | :------: | :---------------- | :------------------------- | :--------- |
+|     108     |    001    |  000004  | I                 | meta storage is online     |            |
+|     108     |    001    |  000004  | I                 | meta storage is offline    |            |
+|     108     |    001    |  000004  | W                 | meta storage space warning | 000004     |
+|     108     |    001    |  000004  | E                 | meta storage is full       | 000003     |
 
 ### log broker
 | Object code | Object ID | Event ID | Notification type | Description           | Error Code |
@@ -158,8 +160,9 @@ Informational events can be either notification type I (information) or notifica
 |     109     |    001    |  000004  | E                 | log broker is full    | 000003     |
 
 ### Object storage
-| Object code | Object ID | Event ID | Notification type | Description               | Error Code |
-| :---------: | :-------: | :------: | :---------------- | :------------------------ | :--------- |
-|     110     |    001    |  000004  | I                 | object storage is online  |            |
-|     110     |    001    |  000004  | I                 | object storage is offline |            |
-|     110     |    001    |  000004  | E                 | object storage is full    | 000003     |
+| Object code | Object ID | Event ID | Notification type | Description                  | Error Code |
+| :---------: | :-------: | :------: | :---------------- | :--------------------------- | :--------- |
+|     110     |    001    |  000004  | I                 | object storage is online     |            |
+|     110     |    001    |  000004  | I                 | object storage is offline    |            |
+|     110     |    001    |  000004  | W                 | object storage space warning | 000004     |
+|     110     |    001    |  000004  | E                 | object storage is full       | 000003     |
